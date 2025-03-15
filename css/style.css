@@ -452,8 +452,8 @@
   .title {
     background: linear-gradient(
     180deg,
-    rgba(74, 108, 247, 0.4) 0%,
-    rgba(74, 108, 247, 0) 100%
+    rgba(109, 137, 246, 0.4) 0%,
+    rgba(114, 140, 245, 0) 100%
   );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
