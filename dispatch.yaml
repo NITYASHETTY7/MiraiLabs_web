@@ -1,5 +1,13 @@
 dispatch:
   # Root domain
+  - url: "zutawa.com/*"
+    service: zutawa-new-site
+
+  # WWW subdomain
+  - url: "www.zutawa.com/*"
+    service: zutawa-new-site
+
+  # Root domain
   - url: "mirailabs.tech/*"
     service: mirai-labs-website
 
