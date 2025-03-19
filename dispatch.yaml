@@ -1,0 +1,8 @@
+dispatch:
+  # Root domain
+  - url: "mirailabs.tech/*"
+    service: mirai-labs-website
+
+  # WWW subdomain
+  - url: "www.mirailabs.tech/*"
+    service: mirai-labs-website
