@@ -1,9 +1,14 @@
-<!DOCTYPE html><html lang="en" class="dark"><head>
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirai Labs</title>
-  <link rel="icon" href="../images/favicon.ico"><link href="../css/style.css" rel="stylesheet"></head>
+    <link rel="icon" href="../images/favicon.ico">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/demo.css" rel="stylesheet">
+  </head>
   
   <body class="dark:bg-dark">
     <!-- ===== Header Start ===== -->
@@ -248,7 +253,7 @@
   
           <!-- Placeholder for Diagram 1 -->
           <div class="wow fadeInUp mx-auto mb-12 max-w-[1150px]" data-wow-delay=".2s">
-             <img src="../images/case-studies/topride-diagram1.png" alt="Diagram 1: High-Level System Architecture" class="w-full rounded-sm">
+             <img src="../images/topride/topride-hllSA.png" alt="Diagram 1: High-Level System Architecture" class="w-full rounded-sm">
              <p class="text-dark-text text-center text-sm italic mt-2">Diagram 1: High-Level System Architecture</p>
              <!-- You can replace the img tag with a placeholder div if the image isn't ready -->
              <!-- <div class="bg-gray-200 dark:bg-[#2E333D] h-64 flex items-center justify-center rounded-sm">
@@ -271,7 +276,7 @@
   
           <!-- Placeholder for Diagram 2 -->
           <div class="wow fadeInUp mx-auto mb-12 max-w-[1150px]" data-wow-delay=".2s">
-             <img src="../images/case-studies/topride-diagram2.png" alt="Diagram 2: Use Case Diagram" class="w-full rounded-sm">
+             <img src="../images/topride/topride-use case diagram.png" alt="Diagram 2: Use Case Diagram" class="w-full rounded-sm">
              <p class="text-dark-text text-center text-sm italic mt-2">Diagram 2: Use Case Diagram</p>
              <!-- Placeholder Option: -->
              <!-- <div class="bg-gray-200 dark:bg-[#2E333D] h-64 flex items-center justify-center rounded-sm">
@@ -280,7 +285,7 @@
           </div>
            <!-- Placeholder for Diagram 3 -->
           <div class="wow fadeInUp mx-auto mb-12 max-w-[1150px]" data-wow-delay=".2s">
-             <img src="../images/case-studies/topride-diagram3.png" alt="Diagram 3: Driver Posting & Passenger Booking Flow" class="w-full rounded-sm">
+             <img src="../images/topride/topride-Driver Posting & Passenger Booking Flow.png" alt="Diagram 3: Driver Posting & Passenger Booking Flow" class="w-full rounded-sm">
              <p class="text-dark-text text-center text-sm italic mt-2">Diagram 3: Driver Posting & Passenger Booking Flow</p>
               <!-- Placeholder Option: -->
              <!-- <div class="bg-gray-200 dark:bg-[#2E333D] h-64 flex items-center justify-center rounded-sm">
@@ -289,7 +294,7 @@
           </div>
            <!-- Placeholder for Diagram 4 -->
           <div class="wow fadeInUp mx-auto mb-12 max-w-[1150px]" data-wow-delay=".2s">
-             <img src="../images/case-studies/topride-diagram4.png" alt="Diagram 4: Request-Match Flow" class="w-full rounded-sm">
+             <img src="../images/topride/topride-Request-Match Flow.png" alt="Diagram 4: Request-Match Flow" class="w-full rounded-sm">
              <p class="text-dark-text text-center text-sm italic mt-2">Diagram 4: Request-Match Flow</p>
               <!-- Placeholder Option: -->
              <!-- <div class="bg-gray-200 dark:bg-[#2E333D] h-64 flex items-center justify-center rounded-sm">
@@ -448,133 +453,67 @@
         </div>
   
       </div> <!-- End of main content border-b div -->
-<!-- Screenshots Grid Section -->
-<div class="px-4 pt-20 xl:container"> <!-- Container with padding -->
-    <div class="wow fadeInUp mx-auto max-w-[1150px]" data-wow-delay=".2s"> <!-- Centered content with max-width -->
-        <h2 class="font-heading text-dark mb-12 text-center text-2xl font-medium md:text-[30px] dark:text-white">
-            App Screenshots
-        </h2>
 
-        <!-- 
-          Responsive Grid:
-          - Applied to the container holding the aspect-ratio wrappers.
-          - Default: 1 column
-          - sm: 2 columns
-          - md: 3 columns (Your requirement)
-          - Adjust gap as needed
-        -->
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-8">
+      <div class="grid-container">
 
-            <!-- Start Screenshot Item 1 -->
-            <!-- 
-              Aspect Ratio Wrapper:
-              - relative: Needed for the absolute positioning of the img inside.
-              - aspect-[9/16]: Sets a fixed 9:16 aspect ratio (common for phone screenshots). Adjust if needed (e.g., aspect-square, aspect-video, aspect-[3/4]).
-              - overflow-hidden: Prevents any potential image overflow.
-              - rounded-lg: Apply rounding to the wrapper.
-              - bg-gray-100 dark:bg-gray-800: Background for the container.
-            -->
-            <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                 <!-- 
-                  Image Styling:
-                  - absolute inset-0: Makes the image fill the parent wrapper completely.
-                  - h-full w-full: Redundant with inset-0 but reinforces the intent.
-                  - object-cover: Scales the image to maintain aspect ratio while filling the element's entire content box (cropping if necessary). This is appropriate HERE because the container has a fixed aspect ratio.
-                -->
-                <img src="../images/topride/1.png" alt="Topride Screenshot 1"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-            <!-- End Screenshot Item 1 -->
+        <div>
+            <img src="../images/topride/1.png" alt="Topride Screenshot 1">
+        </div>
+       
+        <div>
+          <img src="../images/topride/2.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/3.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/4.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/5.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/6.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/7.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/8.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/9.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/10.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/11.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/12.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/13.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/14.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/15.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/16.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/17.png" alt="Topride Screenshot 1">
+        </div>
+        <div>
+          <img src="../images/topride/18.png" alt="Topride Screenshot 1">
+        </div>
 
-            <!-- Start Screenshot Item 2 -->
-            <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/2.png" alt="Topride Screenshot 2"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-            <!-- End Screenshot Item 2 -->
-
-            <!-- Start Screenshot Item 3 -->
-            <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/3.png" alt="Topride Screenshot 3"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-            <!-- End Screenshot Item 3 -->
-
-             <!-- Start Screenshot Item 4 -->
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/4.png" alt="Topride Screenshot 4"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-            <!-- End Screenshot Item 4 -->
-
-             <!-- Start Screenshot Item 5 -->
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/5.png" alt="Topride Screenshot 5"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-            <!-- End Screenshot Item 5 -->
-
-             <!-- Start Screenshot Item 6 -->
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/6.png" alt="Topride Screenshot 6"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-            <!-- End Screenshot Item 6 -->
-
-             <!-- ... Repeat this pattern for all other screenshots ... -->
-
-            <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/7.png" alt="Topride Screenshot 7"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-            <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/8.png" alt="Topride Screenshot 8"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-            <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/9.png" alt="Topride Screenshot 9"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/10.png" alt="Topride Screenshot 10"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/11.png" alt="Topride Screenshot 11"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/12.png" alt="Topride Screenshot 12"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/13.png" alt="Topride Screenshot 13"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/14.png" alt="Topride Screenshot 14"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/15.png" alt="Topride Screenshot 15"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/16.png" alt="Topride Screenshot 16"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/17.png" alt="Topride Screenshot 17"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-             <div class="relative aspect-[9/16] overflow-hidden rounded-lg bg-gray-100 shadow-md dark:bg-gray-800">
-                <img src="../images/topride/18.png" alt="Topride Screenshot 18"
-                     class="absolute inset-0 h-full w-full object-cover">
-            </div>
-
-        </div> <!-- End Grid -->
     </div>
-</div>
+   
   
     </div>
   </section>

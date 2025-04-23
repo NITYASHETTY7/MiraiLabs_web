@@ -1,0 +1,59 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Default: 1 column for small screens */
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  /* Medium screens (sm breakpoint) */
+  @media (min-width: 640px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      gap: 20px;
+    }
+  }
+  
+  /* Large screens (md breakpoint) */
+  @media (min-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      gap: 24px;
+      padding: 24px;
+    }
+  }
+  
+  /* Extra large screens (lg breakpoint) */
+  @media (min-width: 1024px) {
+    .grid-container {
+      gap: 30px; /* Larger gap for bigger screens */
+      padding: 32px;
+    }
+  }
+  
+  /* Mobile screenshot styling */
+  .grid-container img {
+    width: 85%; /* Don't take full width to avoid looking too large */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below images */
+    border-radius: 12px; /* Rounded corners for mobile screenshots */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 0 auto; /* Center the image */
+    max-width: 300px; /* Limit maximum width */
+  }
+  
+  /* Container styling */
+  .grid-container > div {
+    background-color: #f8f8f800; /* Light background */
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+  
+  /* Optional hover effect */
+  .grid-container > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0);
+  }
