@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+.sm { max-width: var(--container-sm); }
+.md { max-width: var(--container-md); }
+.lg { max-width: var(--container-lg); }
+.xl { max-width: var(--container-xl); }
+.2xl { max-width: var(--container-2xl); }
+
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+}
+
+/* Responsive Grid Overrides could go here */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

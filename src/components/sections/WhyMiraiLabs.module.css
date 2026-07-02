@@ -1,0 +1,162 @@
+.section {
+  padding: var(--spacing-24) 0;
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-16);
+}
+
+.sectionBadge {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  background: rgba(14, 165, 233, 0.1);
+  color: var(--color-brand-primary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-4);
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.wheelContainer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .wheelContainer {
+    height: 400px;
+    max-width: 100%;
+  }
+}
+
+.wheelCenter {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 0 40px rgba(14, 165, 233, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+  padding: var(--spacing-6);
+  transition: all var(--transition-normal);
+}
+
+.wheelCenterText {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-family-heading);
+}
+
+.centerActiveTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-primary);
+  margin-bottom: var(--spacing-2);
+}
+
+.centerActiveDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* For continuous rotating ring if desired */
+.ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px dashed var(--color-border);
+  animation: spin 60s linear infinite;
+  z-index: 1;
+}
+.wheelContainer:hover .ring {
+  animation-play-state: paused;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.orbitItem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40px 0 0 -40px; /* offset by half width/height */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+}
+
+.orbitItem:hover, .orbitItem.active {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-brand-primary);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+}
+
+.orbitItemIcon {
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
+}
+
+.orbitItem:hover .orbitItemIcon, .orbitItem.active .orbitItemIcon {
+  color: var(--color-brand-primary);
+}
+
+.orbitItemLabel {
+  position: absolute;
+  bottom: -30px;
+  white-space: nowrap;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-primary);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.orbitItem:hover .orbitItemLabel, .orbitItem.active .orbitItemLabel {
+  opacity: 1;
+  color: var(--color-text-primary);
+}

@@ -1,0 +1,210 @@
+.footer {
+  background-color: #050505; /* Deep rich black/dark grey */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-16) 0 var(--spacing-6);
+  color: #A1A1AA;
+}
+
+.container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--spacing-8);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--spacing-10);
+  margin-bottom: var(--spacing-12);
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.logo {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.brandText {
+  font-size: var(--font-size-base);
+  color: #A1A1AA;
+  line-height: 1.6;
+}
+
+.address {
+  font-style: normal;
+  font-size: var(--font-size-sm);
+  color: #A1A1AA;
+  line-height: 1.6;
+}
+
+.colTitle {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: #FFFFFF;
+  margin-bottom: var(--spacing-6);
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.linkList a {
+  color: #A1A1AA;
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+
+.linkList a:hover {
+  color: #FFFFFF;
+}
+
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-4);
+}
+
+.contactLabel {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #71717A;
+  margin-bottom: var(--spacing-1);
+}
+
+.contactLink {
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+}
+
+.contactLink:hover {
+  text-decoration: underline;
+}
+
+.newsletterSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #121212;
+  padding: var(--spacing-8);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--spacing-12);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.newsletterContent {
+  flex: 1;
+}
+
+.newsletterContent .colTitle {
+  margin-bottom: var(--spacing-2);
+}
+
+.newsletterDesc {
+  font-size: var(--font-size-sm);
+}
+
+.newsletterForm {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.inputGroup {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  background-color: #0A0A0A;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  padding: 4px;
+}
+
+.inputGroup:focus-within {
+  border-color: var(--color-brand-primary);
+  box-shadow: 0 0 0 2px var(--color-brand-glow);
+}
+
+.newsletterInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0 var(--spacing-4);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  outline: none;
+}
+
+.newsletterBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  background-color: var(--color-brand-primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-2) var(--spacing-5);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.newsletterBtn:hover {
+  background-color: var(--color-brand-hover);
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--spacing-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottomText {
+  font-size: var(--font-size-sm);
+  color: #71717A;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .newsletterSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-6);
+  }
+  .newsletterForm {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .inputGroup {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

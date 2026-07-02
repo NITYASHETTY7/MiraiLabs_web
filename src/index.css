@@ -1,0 +1,5 @@
+
+/* Base resets handled by tokens.css */
+* {
+  box-sizing: border-box;
+}
