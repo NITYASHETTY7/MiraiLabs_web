@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Moon, Sun, Menu, Search, X, ArrowRight, Globe } from 'lucide-react';
+import { Moon, Sun, Menu, Search, X, ArrowRight, Globe, Languages, Code, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import styles from './Navigation.module.css';
@@ -12,6 +12,8 @@ const groupedLinks = [
     items: [
       { label: 'Home', href: '/' },
       { label: 'Solutions', href: '/solutions' },
+      { label: 'Industries', href: '/industries' },
+      { label: 'Partners', href: '/partners' },
       { label: 'Products', href: '/products' },
       { label: 'Case Studies', href: '/case-studies' },
     ]
@@ -28,6 +30,7 @@ const groupedLinks = [
     title: 'COMPANY',
     items: [
       { label: 'Company', href: '/company' },
+      { label: 'Careers', href: '/careers' },
       { label: 'Contact', href: '/contact' },
     ]
   }
@@ -178,9 +181,9 @@ export const Navigation = ({ logo }) => {
                 
                 <div className={styles.footerBottom}>
                   <div className={styles.socialLinks}>
-                    <a href="#" aria-label="Social 1"><Globe size={18} /></a>
-                    <a href="#" aria-label="Social 2"><Globe size={18} /></a>
-                    <a href="#" aria-label="Social 3"><Globe size={18} /></a>
+                    <a href="#" aria-label="Language & Region"><Languages size={18} /></a>
+                    <a href="#" aria-label="Engineering"><Code size={18} /></a>
+                    <a href="#" aria-label="Community"><MessageCircle size={18} /></a>
                   </div>
                   <Link to="/newsletter" className={styles.newsletterLink}>
                     Newsletter

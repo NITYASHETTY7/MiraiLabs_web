@@ -1,18 +1,33 @@
 .section {
-  padding: var(--spacing-24) 0;
+  padding: var(--spacing-32) 0;
   background-color: var(--color-bg-primary);
+  position: relative;
   overflow: hidden;
+}
+
+/* Ambient Backgrounds */
+.ambientBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.04) 0%, transparent 40%);
 }
 
 .sectionHeader {
   text-align: center;
   margin-bottom: var(--spacing-16);
+  position: relative;
+  z-index: 10;
 }
 
 .sectionBadge {
   display: inline-block;
   padding: var(--spacing-1) var(--spacing-3);
-  background: rgba(14, 165, 233, 0.1);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
   color: var(--color-brand-primary);
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
@@ -37,6 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 @media (max-width: 768px) {
@@ -51,9 +67,9 @@
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 0 40px rgba(14, 165, 233, 0.15);
+  background: var(--color-bg-primary);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.08), inset 0 0 20px rgba(139, 92, 246, 0.03);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,7 +92,7 @@
 .centerActiveTitle {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
-  color: var(--color-brand-primary);
+  color: var(--color-text-primary);
   margin-bottom: var(--spacing-2);
 }
 
@@ -84,18 +100,35 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   line-height: 1.4;
+  margin-bottom: var(--spacing-3);
 }
 
-/* For continuous rotating ring if desired */
+.centerLearnMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-brand-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.centerLearnMore:hover {
+  color: var(--color-brand-hover);
+}
+
 .ring {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 1px dashed var(--color-border);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.03);
   animation: spin 60s linear infinite;
   z-index: 1;
 }
+
 .wheelContainer:hover .ring {
   animation-play-state: paused;
 }
@@ -108,55 +141,110 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -40px 0 0 -40px; /* offset by half width/height */
+  margin: -40px 0 0 -40px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(139, 92, 246, 0.12);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 20;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .orbitItem:hover, .orbitItem.active {
-  background: var(--color-bg-secondary);
-  border-color: var(--color-brand-primary);
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+  background: var(--color-bg-primary);
+  border-color: rgba(139, 92, 246, 0.4);
+  /* Scale handled by Framer Motion, but keeping border/shadow effects here */
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
 }
 
 .orbitItemIcon {
-  color: var(--color-text-primary);
-  transition: color var(--transition-fast);
+  transition: filter 0.3s, transform 0.3s;
 }
 
 .orbitItem:hover .orbitItemIcon, .orbitItem.active .orbitItemIcon {
-  color: var(--color-brand-primary);
+  filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.5));
+  transform: scale(1.05); /* Slight icon scale */
 }
 
 .orbitItemLabel {
   position: absolute;
-  bottom: -30px;
+  top: -40px; /* Moved tooltip to top so it doesn't overlap center or look like it's falling */
   white-space: nowrap;
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-weight: 600;
+  color: var(--color-text-primary);
   background: var(--color-bg-primary);
-  padding: 2px 8px;
-  border-radius: 12px;
-  border: 1px solid var(--color-border);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  box-shadow: var(--shadow-sm);
   opacity: 0;
-  transition: opacity var(--transition-fast);
+  transform: translateY(10px);
+  transition: all 0.3s ease;
   pointer-events: none;
 }
 
 .orbitItem:hover .orbitItemLabel, .orbitItem.active .orbitItemLabel {
   opacity: 1;
-  color: var(--color-text-primary);
+  transform: translateY(0);
+}
+
+/* Connection Lines */
+.connectionsSvg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+  /* Soft fade into the center */
+  mask-image: radial-gradient(circle, transparent 34%, black 42%);
+  -webkit-mask-image: radial-gradient(circle, transparent 34%, black 42%);
+}
+
+.connectionLine {
+  stroke: rgba(139, 92, 246, 0.15);
+  stroke-width: 1.5px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.connectionLineActive {
+  stroke: rgba(139, 92, 246, 0.6);
+  stroke-width: 2px;
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));
+}
+
+.pulseLine {
+  stroke: var(--color-brand-primary);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-dasharray: 12 600;
+  animation: pulseTravel 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(0 0 4px var(--color-brand-primary));
+}
+
+@keyframes pulseTravel {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -300;
+    opacity: 0;
+  }
 }

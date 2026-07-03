@@ -1,0 +1,333 @@
+/* ================================
+   Partner Ecosystem Page
+   ================================ */
+
+/* Shared section rhythm */
+.section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-brand-primary);
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.sectionDesc {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* -------- HERO -------- */
+.hero {
+  padding: 72px 0 64px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .heroGrid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  color: var(--color-brand-primary);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.heroSubtitle {
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 440px;
+}
+
+.heroVisual {
+  position: relative;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroGlow {
+  position: absolute;
+  inset: 20%;
+  background: radial-gradient(circle, var(--color-brand-glow, rgba(14,165,233,0.15)) 0%, transparent 70%);
+  filter: blur(32px);
+  z-index: 0;
+}
+
+.heroImageCard {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  z-index: 1;
+  width: 90%;
+  height: 280px;
+}
+.heroImageCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .heroVisual { display: none; }
+}
+
+/* -------- TECH ECOSYSTEM -------- */
+.ecosystemGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 48px;
+  justify-content: center;
+}
+
+.ecoNode {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  cursor: default;
+  transition: all 0.2s;
+  overflow: visible;
+}
+
+.ecoNode:hover {
+  border-color: var(--color-brand-primary);
+  background: rgba(14, 165, 233, 0.05);
+}
+
+.ecoName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.ecoTooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.ecoNode:hover .ecoTooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* -------- PARTNERSHIP CATEGORIES -------- */
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .categoriesGrid { grid-template-columns: 1fr; }
+}
+
+.catCard {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.catCard:hover {
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+.catHeader {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: var(--color-bg-primary);
+}
+
+.catTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.catIcon {
+  color: var(--color-text-muted);
+  transition: transform 0.3s;
+}
+.catCard.expanded .catIcon {
+  transform: rotate(180deg);
+}
+
+.catContent {
+  padding: 0 24px 24px;
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.catPartners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.catPartnerBadge {
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  font-size: 0.8125rem;
+}
+
+/* -------- WHY WE PARTNER -------- */
+.whySplit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+@media (max-width: 900px) {
+  .whySplit { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.whyContent p {
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.whyImage {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+}
+
+/* -------- INTEGRATION SHOWCASE -------- */
+.showcaseDiagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 48px;
+  padding: 48px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}
+
+.showcaseBlock {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-brand-primary);
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: center;
+  min-width: 280px;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
+}
+
+.showcaseArrow {
+  color: var(--color-text-muted);
+}
+
+/* -------- CTA BANNER -------- */
+.ctaBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 40px 48px;
+}
+
+@media (max-width: 768px) {
+  .ctaBanner { flex-direction: column; padding: 32px 24px; text-align: center; }
+}
+
+.ctaTitle {
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}

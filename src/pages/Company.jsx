@@ -173,51 +173,6 @@ export function Company() {
         </Container>
       </section>
 
-      {/* ── LIFE AT MIRAI ── */}
-      <section className={styles.section}>
-        <Container size="xl">
-          <motion.div {...fadeUp()} style={{ marginBottom: '32px' }}>
-            <span className={styles.sectionLabel}>Culture</span>
-            <h2 className={styles.sectionTitle}>Life at Mirai.</h2>
-            <p className={styles.sectionDesc}>A vibrant, inclusive, engineering-first workplace where curiosity drives everything.</p>
-          </motion.div>
-          <div className={styles.galleryGrid}>
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Culture" />
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80" alt="Culture" />
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" alt="Culture" />
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Culture" />
-          </div>
-        </Container>
-      </section>
-
-      {/* ── CAREERS ── */}
-      <section className={styles.section} style={{ background: 'var(--color-bg-secondary)' }}>
-        <Container size="xl">
-          <motion.div {...fadeUp()} style={{ marginBottom: '32px' }}>
-            <span className={styles.sectionLabel}>Careers</span>
-            <h2 className={styles.sectionTitle}>Join Mirai Labs.</h2>
-          </motion.div>
-          <div className={styles.careersStack}>
-            {[
-              { title: 'Senior AI Engineer', type: 'Full-time', location: 'Bangalore / Remote', desc: 'Lead the development of our next-generation LLM orchestration platform.' },
-              { title: 'Cloud Solutions Architect', type: 'Full-time', location: 'Remote', desc: 'Design highly available architectures for enterprise clients on AWS.' },
-              { title: 'Product Designer (UX/UI)', type: 'Full-time', location: 'Bangalore', desc: 'Shape the visual identity and user experience of our SaaS products.' }
-            ].map((job, i) => (
-              <motion.div key={i} className={styles.careerRow} {...fadeUp(i * 0.08)}>
-                <div className={styles.careerInfo}>
-                  <div className={styles.careerTitle}>{job.title}</div>
-                  <div className={styles.careerTags}>
-                    <span className={styles.careerTag}>{job.type}</span>
-                    <span className={styles.careerTag}>{job.location}</span>
-                  </div>
-                </div>
-                <p className={styles.careerDesc}>{job.desc}</p>
-                <Button variant="outline" style={{ flexShrink: 0 }}>Apply</Button>
-              </motion.div>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       {/* ── TESTIMONIALS ── */}
       <section className={styles.section}>

@@ -11,6 +11,9 @@ import { CaseStudies } from './pages/CaseStudies';
 import { CaseStudyDetail } from './pages/CaseStudyDetail';
 import { Company } from './pages/Company';
 import { Contact } from './pages/Contact';
+import { Careers } from './pages/Careers';
+import { Industries } from './pages/Industries';
+import { Partners } from './pages/Partners';
 import { Research } from './pages/Research';
 import { Resources } from './pages/Resources';
 import { Blog } from './pages/Blog';
@@ -19,12 +22,15 @@ import { BlogPost } from './pages/BlogPost';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Solutions', href: '/solutions' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'Partners', href: '/partners' },
   { label: 'Products', href: '/products' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Research & Engineering', href: '/research' },
   { label: 'Resources', href: '/resources' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Company', href: '/company' }
+  { label: 'Company', href: '/company' },
+  { label: 'Careers', href: '/careers' }
 ];
 
 function ScrollToTop() {
@@ -53,6 +59,8 @@ function Layout() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/solutions" element={<Solutions />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/partners" element={<Partners />} />
           <Route path="/products" element={<Products />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
@@ -61,6 +69,7 @@ function Layout() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/company" element={<Company />} />
+          <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>

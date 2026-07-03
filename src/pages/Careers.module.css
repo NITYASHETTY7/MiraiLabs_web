@@ -1,0 +1,404 @@
+/* ================================
+   Careers Page – Clean Professional
+   ================================ */
+
+/* Shared section rhythm */
+.section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-brand-primary);
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.sectionDesc {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* -------- HERO -------- */
+.hero {
+  padding: 72px 0 64px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .heroGrid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  color: var(--color-brand-primary);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.heroSubtitle {
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 440px;
+}
+
+.heroVisual {
+  position: relative;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroGlow {
+  position: absolute;
+  inset: 20%;
+  background: radial-gradient(circle, var(--color-brand-glow, rgba(14,165,233,0.15)) 0%, transparent 70%);
+  filter: blur(32px);
+  z-index: 0;
+}
+
+.heroImageCard {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  z-index: 1;
+  width: 90%;
+  height: 280px;
+}
+.heroImageCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .heroVisual { display: none; }
+}
+
+/* -------- WHY JOIN MIRAI -------- */
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .whyGrid { grid-template-columns: 1fr; }
+}
+
+.whyBlock {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s;
+}
+
+.whyBlock:hover {
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+.whyTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.whyText {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* -------- ENGINEERING CULTURE -------- */
+.cultureTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  max-width: 600px;
+  margin: 48px auto 0;
+}
+
+.cultureItem {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  padding: 24px 48px;
+  border-radius: 100px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-brand-primary);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  width: 100%;
+}
+
+.cultureArrow {
+  color: var(--color-text-muted);
+}
+
+/* -------- LIFE AT MIRAI -------- */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.galleryGrid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  display: block;
+  background: var(--color-bg-secondary);
+}
+
+.galleryGrid img:first-child {
+  grid-row: 1 / 3;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .galleryGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .galleryGrid img:first-child {
+    grid-column: 1 / 3;
+    grid-row: auto;
+    height: 200px;
+  }
+}
+
+/* -------- BENEFITS -------- */
+.benefitsFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.benefitPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.benefitPill:hover {
+  border-color: var(--color-brand-primary);
+  background: rgba(14, 165, 233, 0.05);
+}
+
+/* -------- HIRING PROCESS -------- */
+.processContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 48px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+
+@media (max-width: 900px) {
+  .processContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.processStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  min-width: 120px;
+}
+
+@media (max-width: 900px) {
+  .processStep {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.processNumber {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(14, 165, 233, 0.08);
+  color: var(--color-brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.processLabel {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.processArrow {
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 900px) {
+  .processArrow {
+    transform: rotate(90deg);
+    margin-left: 10px;
+  }
+}
+
+/* -------- OPEN POSITIONS -------- */
+.positionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.positionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.positionRow:hover {
+  border-color: rgba(14, 165, 233, 0.4);
+  background: var(--color-bg-primary);
+}
+
+@media (max-width: 768px) {
+  .positionRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.posInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.posTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.posTags {
+  display: flex;
+  gap: 8px;
+}
+
+.posTag {
+  font-size: 11px;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  border-radius: 100px;
+}
+
+/* -------- CTA BANNER -------- */
+.ctaBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 40px 48px;
+}
+
+@media (max-width: 768px) {
+  .ctaBanner { flex-direction: column; padding: 32px 24px; text-align: center; }
+}
+
+.ctaTitle {
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.ctaDesc {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}

@@ -61,8 +61,8 @@ export const Hero = () => {
             >
               {/* Central Hub / Connector Lines (Abstract) */}
               <svg className={styles.compositionLines} viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                <path d="M250,250 L100,100 M250,250 L380,80 M250,250 L80,320 M250,250 L400,350 M250,250 L250,450" stroke="#e2e8f0" strokeWidth="2" strokeDasharray="6 6" fill="none" />
-                <circle cx="250" cy="250" r="40" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="2" />
+                <path d="M250,250 L100,100 M250,250 L380,80 M250,250 L80,320 M250,250 L400,350 M250,250 L250,450" stroke="var(--color-border)" strokeWidth="2" strokeDasharray="6 6" fill="none" />
+                <circle cx="250" cy="250" r="40" fill="var(--color-bg-secondary)" stroke="var(--color-border)" strokeWidth="2" />
               </svg>
               
               <div className={styles.centralIcon}>

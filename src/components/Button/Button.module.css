@@ -58,3 +58,46 @@
 .icon {
   flex-shrink: 0;
 }
+
+/* Dark Theme Overrides */
+:global([data-theme='dark']) .primary {
+  background: linear-gradient(180deg, #8b5cf6 0%, #6366f1 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 12px rgba(139, 92, 246, 0.3);
+  border: 1px solid transparent;
+}
+:global([data-theme='dark']) .primary:hover {
+  background: linear-gradient(180deg, #a78bfa 0%, #818cf8 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 8px 24px rgba(139, 92, 246, 0.5);
+  transform: translateY(-1px);
+}
+:global([data-theme='dark']) .secondary {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+:global([data-theme='dark']) .secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+:global([data-theme='dark']) .ghost {
+  position: relative;
+  background: transparent;
+  padding-bottom: var(--spacing-2);
+}
+:global([data-theme='dark']) .ghost::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; 
+  height: 1px;
+  background: var(--color-brand-primary);
+  transition: width 0.3s ease;
+}
+:global([data-theme='dark']) .ghost:hover {
+  background: transparent;
+}
+:global([data-theme='dark']) .ghost:hover::after {
+  width: 80%;
+}

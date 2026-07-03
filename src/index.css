@@ -1,5 +1,69 @@
-
 /* Base resets handled by tokens.css */
 * {
   box-sizing: border-box;
+}
+
+/* =========================================================
+   DARK THEME GLOBAL OVERRIDES
+   ========================================================= */
+
+/* Glassmorphism Cards & Sections */
+[data-theme='dark'] div[class*="Card"],
+[data-theme='dark'] div[class*="Item"],
+[data-theme='dark'] div[class*="bentoItem"],
+[data-theme='dark'] div[class*="industryCard"],
+[data-theme='dark'] div[class*="csGridCard"] {
+  background: rgba(23, 27, 36, 0.4) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.3) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: var(--radius-xl) !important;
+}
+
+[data-theme='dark'] div[class*="Card"]:hover,
+[data-theme='dark'] div[class*="Item"]:hover,
+[data-theme='dark'] div[class*="bentoItem"]:hover,
+[data-theme='dark'] div[class*="industryCard"]:hover,
+[data-theme='dark'] div[class*="csGridCard"]:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.08), 0 12px 40px rgba(139, 92, 246, 0.15) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Glowing Orbits and Connectors */
+[data-theme='dark'] div[class*="nodeCircle"],
+[data-theme='dark'] div[class*="orbit"] {
+  background: rgba(139, 92, 246, 0.2) !important;
+  border: 1px solid rgba(139, 92, 246, 0.5) !important;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Subtle Gradient Dividers */
+[data-theme='dark'] hr,
+[data-theme='dark'] .section {
+  border-bottom: 1px solid transparent !important;
+  border-image: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent) 1 !important;
+}
+
+/* Icons */
+[data-theme='dark'] svg {
+  opacity: 0.75;
+  transition: all 0.3s ease;
+}
+[data-theme='dark'] div[class*="Card"]:hover svg,
+[data-theme='dark'] div[class*="Item"]:hover svg {
+  opacity: 1;
+  color: var(--color-brand-primary) !important;
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6));
+}
+
+/* Soft Ambient Lighting */
+[data-theme='dark'] .heroGlowPurple {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%) !important;
+}
+[data-theme='dark'] .heroGlowBlue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%) !important;
 }

@@ -1,0 +1,236 @@
+/* Final CTA Section Styles */
+.ctaWrapper {
+  padding: var(--spacing-32) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaContainer {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-xl);
+  border-radius: 32px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #3b0764 100%);
+  overflow: hidden;
+  padding: 80px 100px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Background Effects */
+.ctaGlow {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 60%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ctaGrid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ctaIllustration {
+  position: absolute;
+  right: -5%;
+  bottom: -10%;
+  width: 50%;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+}
+.ctaIllustration img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%) contrast(150%);
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: radial-gradient(circle at center, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 100px 100px;
+  opacity: 0.5;
+}
+
+/* Content Layout */
+.ctaContent {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.ctaLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ctaHeading {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-family: var(--font-family-heading);
+}
+
+.ctaText {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+.trustIndicators {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.trustChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+.trustIcon {
+  color: #a78bfa;
+}
+
+.ctaRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 16px 32px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-family: var(--font-family-heading);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(255,255,255,0.15);
+  background: #f8fafc;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-family: var(--font-family-heading);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+/* Bottom Row */
+.ctaBottomRow {
+  position: relative;
+  z-index: 10;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.bottomChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.bottomChip svg {
+  color: #a78bfa;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ctaContainer {
+    padding: 64px 48px;
+  }
+  .ctaContent {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .ctaIllustration {
+    top: 50%;
+    right: -10%;
+    bottom: auto;
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ctaContainer {
+    padding: 48px 24px;
+    border-radius: 24px;
+  }
+  .ctaLeft, .ctaRight, .ctaBottomRow {
+    align-items: center;
+    text-align: center;
+  }
+  .ctaText {
+    max-width: 100%;
+  }
+  .trustIndicators, .buttonGroup, .ctaBottomRow {
+    justify-content: center;
+  }
+  .buttonGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btnPrimary, .btnSecondary {
+    width: 100%;
+  }
+}
