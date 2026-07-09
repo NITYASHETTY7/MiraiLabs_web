@@ -1,108 +1,111 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Compass, Layers, Zap, BookOpen, Users, ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import styles from './Pages.module.css';
-import { Button } from '../components/Button/Button';
+import { ArrowRight, MessageSquare, Globe, Shield, Sparkles, MapPin } from 'lucide-react';
+import styles from './ContactBento.module.css';
 
 export const Contact = () => {
   return (
-    <div className={styles.cntWrapper}>
-      {/* 1. Hero */}
-      <section className={styles.cntHero}>
-        <div className={styles.cntHeroBg} />
-        <motion.div 
-          className={styles.cntHeroContent}
+    <div className={styles.pageWrapper}>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroGlow} />
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className={styles.cntHeroTitle}>Let's Build Something Great Together</h1>
-          <p className={styles.cntHeroDesc}>
-            Our contact experience is currently being crafted.<br/>
-            In the meantime, explore our solutions, products, and case studies.
+          <h1>Let's build something great together.</h1>
+          <p>
+            Connect with our enterprise experts to explore how Mirai Labs can accelerate your cloud and AI initiatives.
           </p>
         </motion.div>
       </section>
 
-      {/* 2. Coming Soon Card */}
-      <section className={styles.cntSoonSection}>
+      {/* Bento Grid */}
+      <section className={styles.bentoGrid}>
+        
+        {/* Large Form Card */}
         <motion.div 
-          className={styles.cntSoonCard}
+          className={`${styles.bentoCard} ${styles.formCard}`}
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className={styles.cntSoonGraphic}>
-            {/* Conceptual Placeholder Illustration */}
-            <div className={styles.cntSoonIllustration}>
-              <motion.div 
-                animate={{ y: [0, -10, 0] }} 
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className={styles.cntSoonIconBox}
-              >
-                <Mail size={40} />
-              </motion.div>
-              <div className={styles.cntSoonRays} />
+          <div className={styles.cardHeader}>
+            <div className={styles.iconBox}><MessageSquare size={20} /></div>
+            <span className={styles.cardTitle}>Send us a message</span>
+          </div>
+
+          <form className={styles.minimalForm} onSubmit={e => e.preventDefault()}>
+            <div className={styles.formRow}>
+              <div className={styles.inputGroup}>
+                <input type="text" id="fname" placeholder=" " required />
+                <label htmlFor="fname">First Name</label>
+              </div>
+              <div className={styles.inputGroup}>
+                <input type="text" id="lname" placeholder=" " required />
+                <label htmlFor="lname">Last Name</label>
+              </div>
             </div>
-          </div>
-          <div className={styles.cntSoonText}>
-            <span className={styles.cntSoonBadge}>🚧 Coming Soon</span>
-            <h2>Contact Experience</h2>
-            <p>We're designing a seamless way for you to connect with our enterprise experts. Estimated availability: Q3 2026.</p>
-          </div>
-        </motion.div>
-      </section>
 
-      {/* 3. Quick Navigation */}
-      <section className={styles.cntNavSection}>
-        <div className={styles.cntSectionHeader}>
-          <h3>Continue Exploring</h3>
-        </div>
-        <div className={styles.cntNavGrid}>
-          {[
-            { title: 'Solutions', icon: <Compass />, href: '/solutions' },
-            { title: 'Products', icon: <Layers />, href: '/products' },
-            { title: 'Case Studies', icon: <Zap />, href: '/case-studies' },
-            { title: 'Research & Engineering', icon: <Compass />, href: '/research' },
-            { title: 'Resources', icon: <BookOpen />, href: '/resources' },
-            { title: 'Company', icon: <Users />, href: '/company' }
-          ].map((item, idx) => (
-            <Link to={item.href} key={idx} className={styles.cntNavCard}>
-              <div className={styles.cntNavIcon}>{item.icon}</div>
-              <h4>{item.title}</h4>
-              <ArrowUpRight size={20} className={styles.cntNavArrow} />
-            </Link>
-          ))}
-        </div>
-      </section>
+            <div className={styles.formRow}>
+              <div className={styles.inputGroup}>
+                <input type="email" id="email" placeholder=" " required />
+                <label htmlFor="email">Work Email</label>
+              </div>
+              <div className={styles.inputGroup}>
+                <input type="text" id="company" placeholder=" " required />
+                <label htmlFor="company">Company</label>
+              </div>
+            </div>
 
-      {/* 4. Stay Updated */}
-      <section className={styles.cntNewsletter}>
-        <motion.div 
-          className={styles.cntNewsletterBox}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3>Stay Updated</h3>
-          <p>Get notified when our new contact experience goes live.</p>
-          <form className={styles.cntForm} onSubmit={e => e.preventDefault()}>
-            <input type="email" placeholder="Enter your work email" className={styles.cntInput} />
-            <Button variant="primary">Notify Me</Button>
+            <div className={styles.inputGroup}>
+              <textarea id="message" placeholder=" " required></textarea>
+              <label htmlFor="message">How can we help?</label>
+            </div>
+
+            <button type="submit" className={styles.submitBtn}>
+              Send Message <ArrowRight size={16} />
+            </button>
           </form>
         </motion.div>
-      </section>
-      
-      {/* 5. Footer CTA */}
-      <section className={styles.cntFooterCta}>
-        <h2>Ready to learn more?</h2>
-        <div className={styles.cntFooterLinks}>
-          <Link to="/solutions" className={styles.cntPrimaryLink}>Explore Solutions <ArrowRight size={16} /></Link>
-          <Link to="/case-studies" className={styles.cntSecondaryLink}>View Case Studies</Link>
-        </div>
+
+        {/* Info Card 1: Enterprise Sales */}
+        <motion.div 
+          className={`${styles.bentoCard} ${styles.infoCard}`}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className={styles.iconBox}><Shield size={20} /></div>
+          <h3>Enterprise Sales</h3>
+          <p>Discuss custom deployments, SLA requirements, and secure infrastructure integration.</p>
+          <a href="mailto:enterprise@mirailabs.com" className={styles.infoLink}>
+            enterprise@mirailabs.com <ArrowRight size={14} />
+          </a>
+          <Shield className={styles.cardGraphic} size={120} />
+        </motion.div>
+
+        {/* Info Card 2: Global Presence */}
+        <motion.div 
+          className={`${styles.bentoCard} ${styles.infoCard}`}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className={styles.iconBox}><Globe size={20} /></div>
+          <h3>Global HQ</h3>
+          <p>
+            <strong>San Francisco</strong><br />
+            100 Market St, Suite 400<br />
+            CA 94105, United States
+          </p>
+          <a href="#" className={styles.infoLink}>
+            <MapPin size={14} /> View on Map
+          </a>
+          <Globe className={styles.cardGraphic} size={120} />
+        </motion.div>
+
       </section>
     </div>
   );

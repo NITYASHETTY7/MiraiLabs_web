@@ -12,8 +12,8 @@
   z-index: 0;
   pointer-events: none;
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.04) 0%, transparent 40%);
+    radial-gradient(circle at 15% 15%, rgba(var(--color-accent-rgb), 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(var(--color-accent-rgb), 0.04) 0%, transparent 40%);
 }
 
 .sectionHeader {
@@ -26,8 +26,8 @@
 .sectionBadge {
   display: inline-block;
   padding: var(--spacing-1) var(--spacing-3);
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(var(--color-accent-rgb), 0.1);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
   color: var(--color-brand-primary);
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
@@ -68,8 +68,8 @@
   height: 220px;
   border-radius: 50%;
   background: var(--color-bg-primary);
-  border: 1px solid rgba(139, 92, 246, 0.15);
-  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.08), inset 0 0 20px rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.15);
+  box-shadow: 0 10px 40px rgba(var(--color-accent-rgb), 0.08), inset 0 0 20px rgba(var(--color-accent-rgb), 0.03);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,8 +123,8 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 1px solid rgba(139, 92, 246, 0.1);
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.1);
+  box-shadow: 0 0 30px rgba(var(--color-accent-rgb), 0.03);
   animation: spin 60s linear infinite;
   z-index: 1;
 }
@@ -146,22 +146,22 @@
   height: 80px;
   border-radius: 50%;
   background: var(--color-bg-primary);
-  border: 1px solid rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.12);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 20;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.06);
+  box-shadow: 0 4px 12px rgba(var(--color-accent-rgb), 0.06);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .orbitItem:hover, .orbitItem.active {
   background: var(--color-bg-primary);
-  border-color: rgba(139, 92, 246, 0.4);
+  border-color: rgba(var(--color-accent-rgb), 0.4);
   /* Scale handled by Framer Motion, but keeping border/shadow effects here */
-  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 12px 30px rgba(var(--color-accent-rgb), 0.15);
 }
 
 .orbitItemIcon {
@@ -169,7 +169,7 @@
 }
 
 .orbitItem:hover .orbitItemIcon, .orbitItem.active .orbitItemIcon {
-  filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.5));
+  filter: drop-shadow(0 0 6px rgba(var(--color-accent-rgb), 0.5));
   transform: scale(1.05); /* Slight icon scale */
 }
 
@@ -183,7 +183,7 @@
   background: var(--color-bg-primary);
   padding: 4px 10px;
   border-radius: 6px;
-  border: 1px solid rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.15);
   box-shadow: var(--shadow-sm);
   opacity: 0;
   transform: translateY(10px);
@@ -212,15 +212,15 @@
 }
 
 .connectionLine {
-  stroke: rgba(139, 92, 246, 0.15);
+  stroke: rgba(var(--color-accent-rgb), 0.15);
   stroke-width: 1.5px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .connectionLineActive {
-  stroke: rgba(139, 92, 246, 0.6);
+  stroke: rgba(var(--color-accent-rgb), 0.6);
   stroke-width: 2px;
-  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));
+  filter: drop-shadow(0 0 8px rgba(var(--color-accent-rgb), 0.4));
 }
 
 .pulseLine {

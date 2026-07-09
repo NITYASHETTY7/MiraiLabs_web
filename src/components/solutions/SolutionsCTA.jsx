@@ -1,36 +1,49 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Container, Button } from '../../index.js';
+import { Container } from '../../index.js';
 import { Link } from 'react-router-dom';
 import styles from './Solutions.module.css';
 
 export const SolutionsCTA = () => {
   return (
-    <section className={styles.section} style={{padding: 'var(--spacing-32) 0'}}>
-      <Container size="lg">
+    <section className={styles.ctaSection}>
+      <Container size="xl">
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className={styles.ctaCard}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{
-            background: 'linear-gradient(135deg, var(--color-brand-primary) 0%, #a855f7 100%)',
-            borderRadius: 'var(--radius-xl)',
-            padding: 'var(--spacing-16) var(--spacing-8)',
-            textAlign: 'center',
-            boxShadow: 'var(--shadow-lg)'
-          }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 style={{fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', color: '#FFFFFF', margin: '0 auto 1.5rem', letterSpacing: '-0.02em', maxWidth: '800px'}}>
-            Ready to architect your digital future?
-          </h2>
-          <p style={{fontSize: 'var(--font-size-xl)', color: 'rgba(255,255,255,0.8)', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem auto'}}>
-            Schedule a technical discovery session with our senior architects today.
-          </p>
-          <div style={{display: 'flex', gap: '1rem', justifyContent: 'center'}}>
-            <Link to="/contact" style={{textDecoration: 'none'}}>
-              <Button size="lg" style={{backgroundColor: '#FFFFFF', color: 'var(--color-brand-primary)'}}>Schedule Consultation</Button>
-            </Link>
+          {/* Subtle Background Effects */}
+          <div className={styles.ctaOrb}></div>
+          <div className={styles.ctaGrid}></div>
+          <svg className={styles.ctaCurve} viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 100 C 150 -50, 250 -50, 400 100" stroke="rgba(139, 92, 246, 0.15)" strokeWidth="1"/>
+          </svg>
+
+          {/* Centered Content */}
+          <div className={styles.ctaContent}>
+            <div className={styles.ctaBadge}>LET'S BUILD TOGETHER</div>
+            
+            <h2 className={styles.ctaHeadline}>
+              Ready to architect your digital future?
+            </h2>
+            
+            <p className={styles.ctaDesc}>
+              Partner with Mirai Labs to build AI-powered, cloud-native and enterprise-grade platforms that scale with your business.
+            </p>
+
+            <div className={styles.ctaButtonGroup}>
+              <Link to="/contact" className={styles.ctaBtnPrimary}>
+                Schedule Consultation
+              </Link>
+              <Link to="/solutions" className={styles.ctaBtnSecondary}>
+                Explore Solutions
+                <span className={styles.ctaArrow}>→</span>
+              </Link>
+            </div>
           </div>
         </motion.div>
       </Container>

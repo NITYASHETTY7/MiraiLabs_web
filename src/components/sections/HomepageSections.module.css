@@ -26,7 +26,7 @@
   position: absolute;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.15) 0%, transparent 70%);
   top: -200px;
   right: -100px;
   filter: blur(60px);
@@ -46,7 +46,7 @@
 
 .heroGrid {
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 52fr 48fr;
   gap: var(--spacing-8);
   align-items: center;
   position: relative;
@@ -80,7 +80,7 @@
   align-items: center;
   padding: var(--spacing-2) var(--spacing-4);
   border-radius: var(--radius-full);
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(var(--color-accent-rgb), 0.1);
   color: #8b5cf6;
   font-size: 13px;
   font-weight: 700;
@@ -162,82 +162,210 @@
   }
 }
 
-/* Right Side Illustration */
-.heroVisualWrapper {
-  position: relative;
-  height: 600px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* ─────────────────────────────────────────────────────────────────────────────
+   Hero Right Side — Explicit Grid Radial Diagram
+   ───────────────────────────────────────────────────────────────────────────── */
 
-.floatingComposition {
+/*
+  Outer wrapper fills the 45% right column and gives the diagram
+  a defined height to work within.
+*/
+.heroVisualWrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  left: -40px;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: -15px;
 }
 
-.compositionLines {
+/*
+  The diagram grid is the positioning root.
+  It uses percentage-based sizing so it scales with its parent.
+  Cards are positioned with left/top % + translate(-50%,-50%).
+  The SVG uses the same % coordinate space (viewBox 0 0 100 100).
+*/
+.diagramGrid {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 650px;
+}
+
+/* SVG fills the grid exactly — viewBox 0 0 100 100 maps to 100%×100% */
+.diagramSvg {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
+  z-index: 1;
+  /* preserveAspectRatio="none" set on the element so lines scale with the box */
 }
 
-.centralIcon {
+/* Line draw animation */
+.diagramLine {
+  stroke-dasharray: var(--line-len, 30) var(--line-len, 30);
+  stroke-dashoffset: var(--line-len, 30);
+  animation: diagramDraw 0.55s ease-out forwards;
+  animation-play-state: paused;
+}
+.diagramLineVisible {
+  animation-play-state: running;
+}
+@keyframes diagramDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/*
+  Center chip.
+  Sits at exactly 50% / 50% of diagramGrid.
+  The chip is NOT in the card loop — it's a dedicated element.
+*/
+.diagramCenter {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80px;
   height: 80px;
-  background: var(--color-bg-primary);
   border-radius: 50%;
+  background: var(--color-bg-primary);
+  border: 1.5px solid rgba(var(--color-accent-rgb), 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  border: 1px solid var(--color-border);
+  box-shadow:
+    0 0 0 10px rgba(var(--color-accent-rgb), 0.05),
+    0 0 28px rgba(var(--color-accent-rgb), 0.15),
+    0 6px 20px rgba(0, 0, 0, 0.08);
   z-index: 10;
 }
 
-.floatCard {
+/*
+  Cards. left/top come from inline style (% values matching the layout grid).
+  translate(-50%, -50%) places the card CENTER on that point.
+  Fixed width/height so every card is identical.
+*/
+.diagramCard {
   position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 24px;
-  background: var(--color-bg-primary);
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-  border: 1px solid var(--color-border);
-  font-weight: 600;
-  color: var(--color-text-primary);
-  font-size: 15px;
-  white-space: nowrap;
+  transform: translate(-50%, -50%);
   z-index: 20;
+  width: 220px;
 }
 
-.card1 { top: 15%; left: 10%; }
-.card2 { top: 20%; right: 5%; }
-.card3 { top: 75%; left: 15%; }
-.card4 { top: 65%; right: -5%; }
-.card5 { top: 45%; left: 0%; transform: translateX(-30%); }
+/* Card pill that receives the floating animation */
+.diagramCardInner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 0 20px;
+  height: 52px;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-bg-primary);
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.07);
+  white-space: nowrap;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
 
-.nodeCircle {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: var(--color-text-muted);
-  border-radius: 50%;
-  border: 2px solid var(--color-bg-primary);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 5;
+.diagramCardInner:hover {
+  border-color: rgba(var(--color-accent-rgb), 0.35);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 12px 32px rgba(var(--color-accent-rgb), 0.12);
+}
+
+.diagramCardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.diagramCardLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* ── Tablet: shrink the diagram ── */
+@media (max-width: 1200px) {
+  .diagramGrid {
+    max-width: 380px;
+  }
+  .diagramCardInner {
+    height: 48px;
+    padding: 0 14px;
+    gap: 8px;
+  }
+  .diagramCardLabel {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroVisualWrapper {
+    min-height: 400px;
+  }
+  .diagramGrid {
+    max-width: 340px;
+  }
+  .diagramCardLabel {
+    font-size: 12px;
+  }
+}
+
+/* ── Mobile: vertical stack ── */
+@media (max-width: 768px) {
+  .heroVisualWrapper {
+    min-height: auto;
+    padding: 28px 0 4px;
+    align-items: flex-start;
+  }
+
+  .diagramGrid {
+    /* Abandon absolute positioning — switch to flex column */
+    position: static;
+    aspect-ratio: unset;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .diagramSvg { display: none; }
+
+  .diagramCenter {
+    position: static;
+    transform: none;
+    margin-bottom: 4px;
+  }
+
+  .diagramCard {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .diagramCardInner {
+    height: 52px;
+    width: 100%;
+  }
 }
 
 .sectionHeader {
@@ -272,24 +400,173 @@
 
 /* Solutions Bento Grid */
 .bentoGrid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-6);
+  gap: 32px;
 }
+
+@media (max-width: 1024px) {
+  .bentoGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .bentoGrid { grid-template-columns: 1fr; }
+}
+
+/* Card Styling */
 .bentoItem {
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: var(--spacing-8);
-  transition: all var(--transition-normal);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid #ECECF4;
+  border-radius: 24px;
+  padding: 36px !important;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+  height: 100%;
 }
+[data-theme='dark'] .bentoItem {
+  background: linear-gradient(145deg, rgba(22, 32, 51, 0.6) 0%, rgba(15, 23, 42, 0.3) 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
 .bentoItem:hover {
+  transform: translateY(-8px) !important;
   border-color: var(--color-brand-primary);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.04);
 }
+[data-theme='dark'] .bentoItem:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 1. The Icon Container */
+.bentoItem > div:first-child {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(168, 85, 247, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-primary) !important;
+  margin-bottom: 24px !important;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  transition: all 0.4s ease;
+}
+.bentoItem > div:first-child svg {
+  width: 28px !important;
+  height: 28px !important;
+  stroke-width: 1.5px;
+}
+.bentoItem:hover > div:first-child {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+/* 2. The Title */
+.bentoItem > h3 {
+  font-size: 30px !important;
+  font-weight: 700;
+  color: var(--color-text-primary) !important;
+  margin-bottom: 18px !important;
+  letter-spacing: -0.01em;
+  position: relative;
+}
+
+/* Add the small purple divider */
+.bentoItem > h3::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--color-brand-primary);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.bentoItem:hover > h3::after {
+  width: 48px;
+}
+
+/* 3. The Description */
+.bentoItem > p {
+  font-size: 17px !important;
+  color: var(--color-text-secondary) !important;
+  line-height: 1.6;
+  margin-top: 18px !important;
+  margin-bottom: 32px !important;
+  flex-grow: 1;
+}
+
+/* 4. The CTA (the 'a' tag) */
+.bentoItem > a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: var(--color-text-primary) !important;
+  text-decoration: none !important;
+}
+
+/* Hide the old arrow span completely and replace it with a styled SVG using ::after */
+.bentoItem > a > span {
+  display: none !important;
+}
+.bentoItem > a::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-text-primary);
+}
+.bentoItem:hover > a::after {
+  transform: translateX(4px);
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  /* Use filter invert or specific white icon for hover */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
+}
+
+/* Decorative Background Illustrations */
+.bentoItem::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 150px;
+  height: 150px;
+  opacity: 0.05;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: all 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.bentoItem:hover::after {
+  opacity: 0.1;
+  transform: scale(1.1) translate(-10px, -10px);
+}
+
+.bentoItem:nth-child(1)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='1.5'%3E%3Cpath d='M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z'/%3E%3C/svg%3E"); }
+.bentoItem:nth-child(2)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='1.5'%3E%3Cpath d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z'/%3E%3C/svg%3E"); }
+.bentoItem:nth-child(3)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='1.5'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E"); }
+.bentoItem:nth-child(4)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='1.5'%3E%3Cpath d='M8 6L12 2L16 6'/%3E%3Cpath d='M12 2V22'/%3E%3C/svg%3E"); }
+.bentoItem:nth-child(5)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='1.5'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='M18 17V9'/%3E%3Cpath d='M13 17V5'/%3E%3Cpath d='M8 17v-3'/%3E%3C/svg%3E"); }
+.bentoItem:nth-child(6)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='1.5'%3E%3Cellipse cx='12' cy='5' rx='9' ry='3'/%3E%3Cpath d='M3 5V19A9 3 0 0 0 21 19V5'/%3E%3Cpath d='M3 12A9 3 0 0 0 21 12'/%3E%3C/svg%3E"); }
 
 /* Alternating Products */
 .productRow {

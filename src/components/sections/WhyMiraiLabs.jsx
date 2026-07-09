@@ -9,32 +9,32 @@ export const WhyMiraiLabs = () => {
   const features = [
     { 
       title: "Security First", 
-      icon: <Shield size={24} color="#10B981" />, // Green
+      icon: <Shield size={24} color="var(--color-icon-security)" />,
       desc: "Zero-trust architecture and end-to-end encryption protecting your digital assets." 
     },
     { 
       title: "Cloud Experts", 
-      icon: <Server size={24} color="#3B82F6" />, // Blue
+      icon: <Server size={24} color="var(--color-icon-cloud)" />,
       desc: "Multi-cloud, high-availability architectures designed for seamless scaling." 
     },
     { 
       title: "AI Native", 
-      icon: <Sparkles size={24} color="#8B5CF6" />, // Purple
+      icon: <Sparkles size={24} color="var(--color-icon-ai)" />,
       desc: "Deeply integrated AI models transforming operational data into predictive intelligence." 
     },
     { 
       title: "Rapid Delivery", 
-      icon: <Zap size={24} color="#8B5CF6" />, // Violet / Purple variant
+      icon: <Zap size={24} color="var(--color-icon-rapid)" />,
       desc: "Agile engineering practices ensuring swift deployment without sacrificing quality." 
     },
     { 
       title: "Business Outcomes", 
-      icon: <Target size={24} color="#F97316" />, // Orange
+      icon: <Target size={24} color="var(--color-icon-business)" />,
       desc: "Aligning technical solutions directly with measurable ROI and your strategic goals." 
     },
     { 
       title: "Enterprise Grade", 
-      icon: <Building size={24} color="#4F46E5" />, // Indigo
+      icon: <Building size={24} color="var(--color-icon-enterprise)" />,
       desc: "Built for massive scale with unparalleled reliability and compliance standards." 
     }
   ];

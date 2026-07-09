@@ -88,7 +88,7 @@ export const Navigation = ({ logo }) => {
           </div>
           
           <div className={styles.center}>
-            {/* Kept intentionally empty as requested */}
+            {/* Kept intentionally empty */}
           </div>
 
           <div className={styles.rightAction}>
